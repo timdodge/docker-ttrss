@@ -30,6 +30,12 @@ update_plugin_feediron()
     ( cd ${TTRSS_PATH_PLUGINS}/feediron && git pull origin HEAD )
 }
 
+update_plugin_googlereaderkeys()
+{
+    echo "Updating: GoogleReaderKeys"
+    ( cd ${TTRSS_PATH_PLUGINS}/googlereaderkeys && git pull origin HEAD )
+}
+
 update_themes()
 {
     echo "Updating: Themes"
@@ -72,6 +78,7 @@ update_common()
 update_ttrss
 update_plugin_mobilize
 update_plugin_feediron
+update_plugin_googlereader_keys
 update_themes
 update_common
 
