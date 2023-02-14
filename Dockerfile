@@ -1,9 +1,9 @@
 # Using https://github.com/gliderlabs/docker-alpine,
 # plus  https://github.com/just-containers/s6-overlay for a s6 Docker overlay.
-FROM alpine:3.13.5
+FROM alpine:latest
 # Initially was based on work of Christian Lück <christian@lueck.tv>.
-LABEL description="A complete, self-hosted Tiny Tiny RSS (TTRSS) environment." \
-      maintainer="Andreas Löffler <andy@x86dev.com>"
+LABEL description="A complete, self-hosted Tiny Tiny RSS (TTRSS) environment." 
+ARG S6_OVERLAY_VERSION=3.1.3.0
 
 RUN set -xe && \
     apk update && apk upgrade && \
@@ -22,8 +22,10 @@ RUN adduser -u 82 -D -S -G www-data www-data
 COPY root /
 
 # Add s6 overlay.
-# Note: Tweak this line if you're running anything other than x86 AMD64 (64-bit).
-RUN curl -L -s https://github.com/just-containers/s6-overlay/releases/download/v3.1.2.1/s6-overlay-x86_64.tar.xz | tar Jxvf - -C /
+ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp
+RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
+ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz /tmp
+RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz
 
 # Add wait-for-it.sh
 ADD https://raw.githubusercontent.com/Eficode/wait-for/v2.2.4/wait-for /srv
