@@ -39,6 +39,7 @@ EXPOSE 4443
 ENV DB_NAME ttrss
 ENV DB_USER ttrss
 ENV DB_PASS ttrss
+ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME 0
 
 # Clean up.
 RUN set -xe && apk del --progress --purge && rm -rf /var/cache/apk/* && rm -rf /var/lib/apt/lists/*
