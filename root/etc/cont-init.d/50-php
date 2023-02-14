@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv sh
+#!/command/with-contenv sh
 
 # Make sure to have a defined set of PHP binaries,
 # regardless of how the package maintainer(s) named those.
