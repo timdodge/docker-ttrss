@@ -78,7 +78,7 @@ update_common()
 update_ttrss
 update_plugin_mobilize
 update_plugin_feediron
-update_plugin_googlereader_keys
+update_plugin_googlereaderkeys
 update_themes
 update_common
 
