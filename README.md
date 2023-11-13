@@ -1,12 +1,15 @@
 ﻿# docker-ttrss
 
+**The ready-to-use Docker image moved from Docker Hub to Github now: https://ghcr.io/x86dev/docker-ttrss**
+
 This Dockerfile installs Tiny Tiny RSS (TT-RSS) with the following features:
 
-- **New:** Now uses a dedicated volume for the Postgres database data
-- **New:** Integrated [Feedly-ish theme](https://github.com/Gravemind/tt-rss-feedlish-theme) for supporting latest TT-RSS versions
-- **New:** When starting the container, the default theme will be (re-)applied. This should help when a theme breaks (again)
+- **New** Using PHP 8 now
+- **New** Latest Docker image is publish on Github directly now: https://ghcr.io/x86dev/docker-ttrss
+- Uses a dedicated volume for the Postgres database data
+- Integrated [Feedly-ish theme](https://github.com/Gravemind/tt-rss-feedlish-theme) for supporting latest TT-RSS versions
+- When starting the container, the default theme will be (re-)applied. This should help when a theme breaks (again)
 - Based on [Docker-Alpine](https://github.com/gliderlabs/docker-alpine) and [s6](http://skarnet.org/software/s6/) as the supervisor
-- Using PHP 7
 - Small and lightweight image size (< 100 MB)
 - Rolling release support: Updates TT-RSS automatically every day
 - Works nicely with jwilder's [nginx-proxy](https://github.com/jwilder/nginx-proxy), e.g. to use for Let's Encrypt SSL certificates
@@ -15,8 +18,6 @@ This Dockerfile installs Tiny Tiny RSS (TT-RSS) with the following features:
 - Integrated [Mobilize plugin](https://github.com/sepich/tt-rss-mobilize) for using Readability, Instapaper + Google Mobilizer
 - Optional: Self-signed 4096-bit RSA TLS certificate for accessing TT-RSS via https
 - Originally was based on [clue/docker-ttrss](https://github.com/clue/docker-ttrss)
-
-A ready-to-use Docker image is available at [Docker Hub](https://hub.docker.com/r/x86dev/docker-ttrss/)
 
 Feel free to tweak this further to your likings.
 
