@@ -9,11 +9,12 @@ RUN set -xe && \
     apk update && apk upgrade && \
     apk add --no-cache --virtual=run-deps \
     busybox nginx git ca-certificates curl \
-    php81 php81-fpm php81-phar \
-    php81-pdo php81-gd php81-pgsql php81-pdo_pgsql php81-xmlwriter \
-    php81-mbstring php81-intl php81-xml php81-curl php81-simplexml \
-    php81-session php81-tokenizer php81-dom php81-fileinfo php81-ctype \
-    php81-json php81-iconv php81-pcntl php81-posix php81-zip php81-exif php81-openssl \
+    php82 php82-fpm php82-phar php82-sockets php82-pecl-apcu \
+    php82-pdo php82-gd php82-pgsql php82-pdo_pgsql php82-xmlwriter php82-opcache \
+    php82-mbstring php82-intl php82-xml php82-curl php82-simplexml \
+    php82-session php82-tokenizer php82-dom php82-fileinfo php82-ctype \
+    php82-json php82-iconv php82-pcntl php82-posix php82-zip php82-exif \
+    php82-openssl sudo php82-pecl-xdebug rsync tzdata \
     tar xz
 
 # Add user www-data for php-fpm.
