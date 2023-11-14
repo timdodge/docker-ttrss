@@ -22,7 +22,7 @@ RUN set -xe && \
 RUN adduser -u 82 -D -S -G www-data www-data
 
 # Copy root file system.
-COPY root /
+COPY --chown=www-data:www-data root /
 
 # Add s6 overlay.
 ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp
