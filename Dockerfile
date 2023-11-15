@@ -18,9 +18,10 @@ RUN set -xe && \
     tar xz
 
 RUN rm -f /usr/bin/php && \
-	ln -sf /usr/bin/php82 /usr/bin/php && \
-	rm -f /usr/sbin/php-fpm && \
-	ln -sf /usr/sbin/php-fpm82 /usr/sbin/php-fpm
+    ln -sf /usr/bin/php82 /usr/bin/php && \
+    rm -f /usr/sbin/php-fpm && \
+    ln -sf /usr/sbin/php-fpm82 /usr/sbin/php-fpm && \
+    rm -f /etc/init.d/php-fpm82
 
 # Add user www-data for php-fpm.
 # 82 is the standard uid/gid for "www-data" in Alpine.
