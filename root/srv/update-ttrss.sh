@@ -66,7 +66,7 @@ update_common()
     fi
 
     echo "Updating: Updating permissions"
-    for CUR_DIR in /etc/nginx /etc/php82 /var/lib/nginx /etc/services.d; do
+    for CUR_DIR in /etc/nginx /etc/php82 /var/lib/nginx /etc/services.d /etc/s6-overlay; do
         chown -R ${MY_ROOT_UID}:${MY_ROOT_GID} ${CUR_DIR}
     done
 
