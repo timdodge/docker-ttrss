@@ -48,7 +48,7 @@ setup_ttrss()
     fi
 
     if [ -z "$TTRSS_PATH" ]; then
-    	TTRSS_PATH=/var/www/ttrss
+        TTRSS_PATH=/var/www/ttrss
     fi
 
     TTRSS_PATH_THEMES=${TTRSS_PATH}/themes.local
@@ -70,7 +70,7 @@ setup_ttrss()
         mkdir -p ${TTRSS_PATH_PLUGINS}
         git clone --depth=1 https://github.com/sepich/tt-rss-mobilize.git ${TTRSS_PATH_PLUGINS}/mobilize
         git clone --depth=1 https://github.com/feediron/ttrss_plugin-feediron.git ${TTRSS_PATH_PLUGINS}/feediron
-	git clone --depth=1 https://git.tt-rss.org/fox/ttrss-googlereaderkeys.git ${TTRSS_PATH_PLUGINS}/googlereaderkeys
+    git clone --depth=1 https://git.tt-rss.org/fox/ttrss-googlereaderkeys.git ${TTRSS_PATH_PLUGINS}/googlereaderkeys
 
         mkdir -p ${TTRSS_PATH_THEMES}
         git clone --depth=1 https://github.com/levito/tt-rss-feedly-theme.git ${TTRSS_PATH_THEMES}/levito-feedly-git
@@ -103,8 +103,8 @@ setup_ttrss()
     # If we've been passed $TTRSS_SELF_URL as an env variable, then use that,
     # otherwise use the URL we constructed above.
     if [ -z "$TTRSS_SELF_URL" ]; then
-  	    # Construct the final URL TTRSS will use.
-   	    TTRSS_SELF_URL=${TTRSS_PROTO}://${TTRSS_URL}${TTRSS_PORT}/
+        # Construct the final URL TTRSS will use.
+        TTRSS_SELF_URL=${TTRSS_PROTO}://${TTRSS_URL}${TTRSS_PORT}/
     fi
 
     echo "Setup: URL is: $TTRSS_SELF_URL"
