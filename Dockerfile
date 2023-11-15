@@ -3,7 +3,7 @@
 FROM docker.io/alpine:3 AS builder
 # Initially was based on work of Christian Lück <christian@lueck.tv>.
 LABEL description="A complete, self-hosted Tiny Tiny RSS (TTRSS) environment." 
-ARG S6_OVERLAY_VERSION=3.1.3.0
+ARG S6_OVERLAY_VERSION=3.1.6.0
 
 RUN set -xe && \
     apk update && apk upgrade && \
@@ -16,6 +16,11 @@ RUN set -xe && \
     php82-json php82-iconv php82-pcntl php82-posix php82-zip php82-exif \
     php82-openssl sudo php82-pecl-xdebug rsync tzdata \
     tar xz
+
+RUN rm -f /usr/bin/php && \
+	ln -sf /usr/bin/php82 /usr/bin/php && \
+	rm -f /usr/sbin/php-fpm && \
+	ln -sf /usr/sbin/php-fpm82 /usr/sbin/php-fpm
 
 # Add user www-data for php-fpm.
 # 82 is the standard uid/gid for "www-data" in Alpine.
