@@ -70,12 +70,15 @@ setup_ttrss()
         mkdir -p ${TTRSS_PATH_PLUGINS}
         git clone --depth=1 https://github.com/sepich/tt-rss-mobilize.git ${TTRSS_PATH_PLUGINS}/mobilize
         git clone --depth=1 https://github.com/feediron/ttrss_plugin-feediron.git ${TTRSS_PATH_PLUGINS}/feediron
-    git clone --depth=1 https://git.tt-rss.org/fox/ttrss-googlereaderkeys.git ${TTRSS_PATH_PLUGINS}/googlereaderkeys
+        git clone --depth=1 https://git.tt-rss.org/fox/ttrss-googlereaderkeys.git ${TTRSS_PATH_PLUGINS}/googlereaderkeys
 
         mkdir -p ${TTRSS_PATH_THEMES}
         git clone --depth=1 https://github.com/levito/tt-rss-feedly-theme.git ${TTRSS_PATH_THEMES}/levito-feedly-git
         git clone --depth=1 https://github.com/Gravemind/tt-rss-feedlish-theme.git ${TTRSS_PATH_THEMES}/gravemind-feedly-git
     fi
+
+    # make git permissions and security more lax so TTRSS can do its dodgy
+    git config --global --add safe.directory ${TTRSS_PATH}
 
     # Add initial config.
     cp ${TTRSS_PATH}/config.php-dist ${TTRSS_PATH}/config.php
